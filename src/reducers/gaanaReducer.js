@@ -1,15 +1,39 @@
-const initialState = []
-const gaanaReducer = (state=initialState,action)=>{
-    switch(action.type){
+const initialState = {
+    songName: '',
+    songDuration: '',
+    singer: '',
+    songs: []
+}
+const gaanaReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case 'SONGNAME_UPDATE':
+            return {
+                ...state,
+                songName: action.name
+            }
+        case 'SONGDURATION_UPDATE':
+            return {
+                ...state,
+                songDuration: action.duration
+            }
+        case 'SINGER_UPDATE':
+            return {
+                ...state,
+                singer: action.singer
+            }
         case 'ADD_SONG':
-            return [
-                ...state,action.song
-            ]
+            return {
+                ...state,
+                songName: '',
+                songDuration: '',
+                singer: '',
+                songs: [...state.songs, action.song]
+            }
         case 'REMOVE_SONG':
-            return state.filter(({id})=>id !== action.id)
+            return state.filter(({ id }) => id !== action.id)
         default:
             return state
     }
 }
 
-export {gaanaReducer as default}
+export { gaanaReducer as default }
