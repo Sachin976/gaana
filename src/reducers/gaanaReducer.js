@@ -2,10 +2,20 @@ const initialState = {
     songName: '',
     songDuration: '',
     singer: '',
+    loginStatus:undefined,
+    email:'',
+    password:'',
     songs: []
 }
 const gaanaReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'LOGIN_USER':
+            return {
+                ...state,
+                loginStatus:true,
+                email:action.email,
+                password:action.password
+            }
         case 'SONGNAME_UPDATE':
             return {
                 ...state,

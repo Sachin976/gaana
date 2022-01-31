@@ -5,6 +5,8 @@ import HomePage from '../components/HomePage';
 import AddSongPage from '../components/AddSongPage';
 import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage'
+import PrivateRoute from '../components/PrivateRoute';
+import Login from '../components/Login';
 
 const AppRouter = ()=>(
     <Router>
@@ -12,7 +14,9 @@ const AppRouter = ()=>(
             <Header />
             <Switch>
                 <Route path='/' component={HomePage} exact/>
-                <Route path='/add' component={AddSongPage}/>
+                <Route path='/login' component={Login} />
+                <PrivateRoute path='/add' component={AddSongPage} exact/>
+
                 <Route path='/help' component={HelpPage} />
                 <Route path="*" component={NotFoundPage} />
             </Switch>

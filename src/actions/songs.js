@@ -30,3 +30,10 @@ export const removeSong = (id='')=>({
     type:'REMOVE_SONG',
     id
 })
+
+export const login = (email='',password='')=>({
+    type:'LOGIN_USER',
+    email,
+    password
+})
+
